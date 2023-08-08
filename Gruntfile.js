@@ -17,26 +17,23 @@ module.exports = function(grunt) {
     },
 
     browserify: {
-      build: {
-        options: {
-          standalone: "slog",
+      browser: {
+        files: {
+          "./dist/slog.js": ["./browser.js"],
         },
-        src: "./lib/index.js",
-        dest: "./dist/slog.js",
       },
     },
 
     karma: {
-      options: {
-        configFile: "karma.conf.js",
-      },
       build: {
         options: {
+          configFile: "karma.conf.js",
           singleRun: true,
         },
       },
       dev: {
         options: {
+          configFile: "karma.conf.js",
           background: true,
           autoWatch: false,
         },
@@ -54,11 +51,9 @@ module.exports = function(grunt) {
     },
   });
 
-  grunt.loadNpmTasks("grunt-browserify");
-  grunt.loadNpmTasks("grunt-karma");
-  grunt.loadNpmTasks("grunt-contrib-watch");
-  grunt.loadNpmTasks("grunt-contrib-jshint");
+  // Load grunt plugins
+  require("load-grunt-tasks")(grunt);
 
   grunt.registerTask("default", ["jshint:build", "browserify", "karma:build"]);
-  grunt.registerTask("dev", ["karma:dev:start", "watch"]);
+  grunt.registerTask("dev", ["karma:dev", "watch:dev"]);
 };
