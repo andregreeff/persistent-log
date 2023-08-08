@@ -10,7 +10,7 @@ Storage Logger allows your app to save log messages using `localStorage` and rea
 
 ## How to use
 
-Get Storage Logger from https://raw.github.com/andregreeff/storage-logger/master/dist/slog.js and include it in your page.
+Get Storage Logger from https://raw.github.com/andregreeff/storage-logger/master/dist/storage-logger.js and include it in your page.
 
 ```Javascript
 // Create a storage object
@@ -48,7 +48,7 @@ storage-logger uses [grunt](http://gruntjs.com/), [browserify](http://browserify
 1. Clone the repo
 2. Install grunt-cli globally: `npm install -g grunt-cli`
 3. Install local dependencies: `npm install`
-4. Build using the default grunt task (the result will be placed in './dist/slog.js'): `grunt`
+4. Build using the default grunt task (the result will be placed in './dist/storage-logger.js'): `grunt`
 
 There is also a very convenient task for development that watches source files and runs the build process (browserify, karma tests, etc.) after each change:
 
