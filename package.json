@@ -1,5 +1,5 @@
 {
-  "name": "persistent-log",
+  "name": "storage-logger",
   "version": "0.0.1",
   "description": "Persisten log for javascript client apps",
   "main": "index.js",
@@ -9,11 +9,20 @@
   "keywords": [
     "log"
   ],
-  "homepage": "https://github.com/jmhdez/persistent-log",
-  "author": "Juan M. Hernández",
-  "repository" : {
+  "homepage": "https://github.com/andregreeff/storage-logger",
+  "contributors": [
+    {
+      "name": "Juan M. Hernández (original)",
+      "url": "https://github.com/jmhdez"
+    },
+    {
+      "name": "Andre Greeff",
+      "url": "https://github.com/andregreeff"
+    }
+  ],
+  "repository": {
     "type": "git",
-    "url": "https://github.com/jmhdez/persistent-log.git"
+    "url": "https://github.com/andregreeff/storage-logger.git"
   },
   "license": "MIT",
   "devDependencies": {

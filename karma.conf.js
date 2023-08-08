@@ -12,7 +12,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      "dist/plog.js",
+      "dist/slog.js",
       "specs/**/*.js",
     ],
 
