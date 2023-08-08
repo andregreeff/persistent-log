@@ -19,10 +19,10 @@ module.exports = function(grunt) {
     browserify: {
       build: {
         options: {
-          standalone: "plog",
+          standalone: "slog",
         },
         src: "./lib/index.js",
-        dest: "./dist/plog.js",
+        dest: "./dist/slog.js",
       },
     },
 
