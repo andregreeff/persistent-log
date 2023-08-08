@@ -16,6 +16,16 @@ describe("slog", function() {
       slog.useStorage(storage);
       expect(slog.getStorage()).toBe(storage);
     });
+
+    it("can export all current events to file", function() {
+      var errorMessage = "";
+      try {
+        slog.exportEvents(true);
+      } catch (error) {
+        errorMessage = error.message;
+      }
+      expect(errorMessage).toBe("");
+    });
   });
 
   describe("when working with levels", function() {
