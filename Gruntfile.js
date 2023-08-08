@@ -1,67 +1,64 @@
 module.exports = function(grunt) {
-
-  var srcFiles = ['Gruntfile.js', 'karma.conf.js', './lib/**/*.js', './specs/**/*.js'];
+  var srcFiles = ["Gruntfile.js", "karma.conf.js", "./lib/**/*.js", "./specs/**/*.js"];
 
   grunt.initConfig({
-    pkg: grunt.file.readJSON('package.json'),
+    pkg: grunt.file.readJSON("package.json"),
 
     jshint: {
       build: {
-        src: srcFiles
+        src: srcFiles,
       },
       dev: {
         src: srcFiles,
         options: {
-          force: true  
-        }
-      }
+          force: true,
+        },
+      },
     },
 
     browserify: {
       build: {
-        options: { 
-          standalone: "plog"
+        options: {
+          standalone: "plog",
         },
-        src: './lib/index.js',
-        dest: './dist/plog.js'
-      }
+        src: "./lib/index.js",
+        dest: "./dist/plog.js",
+      },
     },
 
     karma: {
       options: {
-        configFile: 'karma.conf.js'
+        configFile: "karma.conf.js",
       },
       build: {
         options: {
-          singleRun: true
-        }
+          singleRun: true,
+        },
       },
       dev: {
         options: {
           background: true,
-          autoWatch: false
-        }
-      }
+          autoWatch: false,
+        },
+      },
     },
 
     watch: {
       dev: {
         files: srcFiles,
-        tasks: ['jshint:dev', 'browserify', 'karma:dev:run'],
+        tasks: ["jshint:dev", "browserify", "karma:dev:run"],
         options: {
-          spawn: false
-        }
-      }
-    }
-
+          spawn: false,
+        },
+      },
+    },
   });
 
-  grunt.loadNpmTasks('grunt-browserify');
-  grunt.loadNpmTasks('grunt-karma');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks("grunt-browserify");
+  grunt.loadNpmTasks("grunt-karma");
+  grunt.loadNpmTasks("grunt-contrib-watch");
+  grunt.loadNpmTasks("grunt-contrib-jshint");
 
-  grunt.registerTask('default', ['jshint:build', 'browserify', 'karma:build']);
-  grunt.registerTask('dev', ['karma:dev:start', 'watch']);
-
+  grunt.registerTask("default", ["jshint:build", "browserify", "karma:build"]);
+  grunt.registerTask("dev", ["karma:dev:start", "watch"]);
 };
