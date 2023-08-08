@@ -19,7 +19,7 @@ module.exports = function(grunt) {
     browserify: {
       browser: {
         files: {
-          "./dist/slog.js": ["./browser.js"],
+          "./dist/storage-logger.js": ["./browser.js"],
         },
       },
     },
