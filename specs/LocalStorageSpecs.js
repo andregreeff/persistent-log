@@ -8,12 +8,12 @@ describe("LocalStorage", function() {
   });
 
   it("can add events to local storage", function() {
-    storage.append({ msg: "one" });
-    storage.append({ msg: "two" });
+    storage.append({ message: "one", date: new Date().toISOString() });
+    storage.append({ message: "two", date: new Date().toISOString() });
 
     var events = storage.getEvents();
-    expect(events[0].msg).toBe("one");
-    expect(events[1].msg).toBe("two");
+    expect(events[0].message).toBe("one");
+    expect(events[1].message).toBe("two");
   });
 
   describe("when size grows over max size", function() {
@@ -21,9 +21,9 @@ describe("LocalStorage", function() {
 
     beforeEach(function() {
       for (var i = 0; i < 10; i++) {
-        storage.append({ msg: i });
+        storage.append({ message: i, date: new Date().toISOString() });
       }
-      storage.append({ msg: "the last one" });
+      storage.append({ message: "the last one", date: new Date().toISOString() });
       events = storage.getEvents();
     });
 
@@ -32,8 +32,8 @@ describe("LocalStorage", function() {
     });
 
     it("drops older events", function() {
-      expect(events[0].msg).toBe(2);
-      expect(events[8].msg).toBe("the last one");
+      expect(events[0].message).toBe(2);
+      expect(events[8].message).toBe("the last one");
     });
   });
 });
