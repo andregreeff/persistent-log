@@ -1,5 +1,6 @@
 // Karma configuration
-// Generated on Fri Dec 27 2013 11:11:35 GMT+0100 (Hora estándar romance)
+
+process.env.CHROME_BIN = require("puppeteer").executablePath();
 
 module.exports = function(config) {
   config.set({
@@ -43,7 +44,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ["PhantomJS"], // , 'Chrome', 'Firefox', 'IE'],
+    browsers: ["Chrome"],
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
