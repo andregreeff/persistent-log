@@ -8,23 +8,23 @@ describe("InMemoryStorage", function() {
   it("stores new events", function() {
     storage.append({
       logger: "one logger",
-      date: new Date(),
-      msg: "first message",
+      date: new Date().toISOString(),
+      message: "first message",
     });
   });
 
   it("retrieves stored events", function() {
-    storage.append({ msg: "one" });
-    storage.append({ msg: "two" });
+    storage.append({ message: "one", date: new Date().toISOString() });
+    storage.append({ message: "two", date: new Date().toISOString() });
 
     var events = storage.getEvents();
     expect(events.length).toBe(2);
-    expect(events[0].msg).toBe("one");
-    expect(events[1].msg).toBe("two");
+    expect(events[0].message).toBe("one");
+    expect(events[1].message).toBe("two");
   });
 
   it("clears stored events", function() {
-    storage.append({ msg: "one" });
+    storage.append({ message: "one", date: new Date().toISOString() });
     storage.clear();
 
     expect(storage.getEvents().length).toBe(0);
